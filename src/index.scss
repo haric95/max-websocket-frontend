@@ -1,0 +1,32 @@
+html,
+body {
+  background: #ffffff;
+  color: #606063;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+}
+
+canvas {
+  position: absolute;
+}
+
+.loading {
+  padding: 10px;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.scrollArea {
+  height: 100vh;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+}

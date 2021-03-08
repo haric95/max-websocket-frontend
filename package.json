@@ -10,12 +10,17 @@
     "@types/node": "^12.20.4",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.1",
+    "drei": "^2.2.21",
+    "lerp": "^1.0.3",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3",
+    "react-three-fiber": "^5.3.19",
+    "three": "^0.124.0",
     "typescript": "^4.2.3",
-    "web-vitals": "^1.1.0"
+    "web-vitals": "^1.1.0",
+    "zustand": "^3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,5 +45,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-glsl": "^1.0.0",
+    "glslify": "^7.1.1"
   }
 }
