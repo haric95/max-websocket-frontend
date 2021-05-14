@@ -13,6 +13,10 @@ body {
   width: 100vw;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 canvas {
   position: absolute;
 }
@@ -30,3 +34,12 @@ canvas {
   top: 0;
   width: 100vw;
 }
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 8px;
+}
+
+@import "./components/pages/pages.scss";

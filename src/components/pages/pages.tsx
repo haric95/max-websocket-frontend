@@ -5,6 +5,7 @@ import React from "react";
 import { useLoader } from "react-three-fiber";
 import { state } from "store/store";
 import { TextureLoader } from "three";
+import FutropolisImg from "assets/futropolis.webp";
 
 export const Pages: React.FC = () => {
   const textures = useLoader(TextureLoader, state.images);
@@ -12,7 +13,9 @@ export const Pages: React.FC = () => {
   return (
     <>
       <Block factor={1} offset={0}>
-        <Content side="left" map={textures[0]}>
+        <Content side="left" map={textures[0]} className="portfolio-block">
+          <h1>Honeywell's Futropolis</h1>
+          <img src={FutropolisImg} />
         </Content>
       </Block>
       <Block factor={-1} offset={1}>

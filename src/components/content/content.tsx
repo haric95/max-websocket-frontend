@@ -1,6 +1,6 @@
 import { useBlock } from "components/block/block";
 import { Plane } from "components/plane/plane";
-import { Html } from "drei";
+import { Html, HtmlProps } from "drei";
 import { stat } from "node:fs";
 import React from "react";
 import { state } from "store/store";
@@ -10,13 +10,14 @@ type ContentProps = {
   side: "left" | "right";
   color?: MeshBasicMaterialParameters["color"];
   map?: Texture;
-};
+} & HtmlProps;
 
 export const Content: React.FC<ContentProps> = ({
   side = "left",
   color = "#bfe2ca",
   map = null,
   children,
+  ...props
 }) => {
   const { contentMaxWidth, canvasWidth, margin, isMobile, sectionHeight } =
     useBlock();
@@ -37,13 +38,14 @@ export const Content: React.FC<ContentProps> = ({
       )}
       <Html
         style={{
-          width: pixelWidth,
+          width: alignRight ? pixelWidth - 12 : pixelWidth,
           textAlign: "left",
           top: -planeHeight / 2,
           height: planeHeight,
           padding: 2,
         }}
         position={[-contentMaxWidth / 2, 0, 1]}
+        {...props}
       >
         {children}
       </Html>
