@@ -13,9 +13,6 @@ export const Pages: React.FC = () => {
     <>
       <Block factor={1} offset={0}>
         <Content side="left" map={textures[0]}>
-          <Html>
-            <h1>Scroll</h1>
-          </Html>
         </Content>
       </Block>
       <Block factor={-1} offset={1}>
