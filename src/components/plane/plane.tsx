@@ -11,6 +11,7 @@ import {
   ShaderMaterial,
   Texture,
 } from "three";
+import glsl from "babel-plugin-glsl/macro";
 
 type PlaneProps = {
   color?: MeshBasicMaterialParameters["color"];
@@ -20,13 +21,13 @@ type PlaneProps = {
   typeof Mesh
 >;
 
-const fragmentShader = `
+const fragmentShader = glsl`
   void main() {
-    gl_FragColor = vec4(0,1,1,1);
+    gl_FragColor = vec4(1,1,1,1);
   }
 `;
 
-const vertexShader = `
+const vertexShader = glsl`
   varying vec3 vUv; 
 
   void main() {
@@ -44,11 +45,10 @@ export const Plane: React.FC<PlaneProps> = ({ map, color, ...props }) => {
     <mesh {...props}>
       <planeBufferGeometry />
       {map ? (
-        // <shaderMaterial
-        //   fragmentShader={fragmentShader}
-        //   vertexShader={vertexShader}
-        // />
-        <customMaterial attach="material" />
+        <shaderMaterial
+          fragmentShader={fragmentShader}
+          vertexShader={vertexShader}
+        />
       ) : color ? (
         <meshBasicMaterial color={color} />
       ) : null}
