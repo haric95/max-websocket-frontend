@@ -7,7 +7,7 @@ import { useLoader } from "react-three-fiber";
 import { state } from "store/store";
 import { TextureLoader } from "three";
 
-const colors = ["#B5D3DD", "#D9A59E"];
+const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
 
 export const Pages: React.FC = () => {
   const textures = useLoader(TextureLoader, state.images);
@@ -29,10 +29,10 @@ export const Pages: React.FC = () => {
         <Content side="right" color={colors[1]}></Content>
       </Block>
       <Block factor={1} offset={2}>
-        <Content side="left" color="yellow"></Content>
+        <Content side="left" color={colors[2]}></Content>
       </Block>
       <Block factor={-1} offset={3}>
-        <Content side="right" color="orange"></Content>
+        <Content side="right" color={colors[3]}></Content>
       </Block>
     </>
   );
