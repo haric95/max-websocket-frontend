@@ -7,6 +7,8 @@ import { useLoader } from "react-three-fiber";
 import { state } from "store/store";
 import { TextureLoader } from "three";
 
+const colors = ["#B5D3DD", "#D9A59E"];
+
 export const Pages: React.FC = () => {
   const textures = useLoader(TextureLoader, state.images);
 
@@ -15,7 +17,7 @@ export const Pages: React.FC = () => {
   return (
     <>
       <Block factor={1} offset={0}>
-        <Content side="left" className="portfolio-block" color={"#E5F7F2"}>
+        <Content side="left" className="portfolio-block" color={colors[0]}>
           <h1>Honeywell's Futropolis</h1>
           <p>
             A modern web experience built with <b>react-three-fiber</b> and{" "}
@@ -24,7 +26,7 @@ export const Pages: React.FC = () => {
         </Content>
       </Block>
       <Block factor={-1} offset={1}>
-        <Content side="right" color="yellow"></Content>
+        <Content side="right" color={colors[1]}></Content>
       </Block>
       <Block factor={1} offset={2}>
         <Content side="left" color="yellow"></Content>
