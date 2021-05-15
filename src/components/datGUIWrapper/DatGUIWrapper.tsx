@@ -41,14 +41,7 @@ export const DatGuiWrapper: React.FC = ({ children }) => {
         style={{ zIndex: 1 }}
       >
         <DatString path="string" label="String" />
-        <DatNumber
-          path="minMaxNumber"
-          label="Number"
-          min={0}
-          max={100}
-          step={1}
-        />
-        <DatNumber path="number" label="Number" min={0} max={1} step={0.1} />
+        <DatNumber path="number" label="Number" min={0} max={1000} step={10} />
         <DatBoolean path="boolean" label="Boolean" />
         <DatSelect
           label="Select"
