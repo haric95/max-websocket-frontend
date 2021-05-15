@@ -22,7 +22,7 @@ export const Pages: React.FC = () => {
           </h2>
           <h3>
             Outside of work you can find consuming excessive amounts of music or
-            testing new recipies in the kitchen
+            testing new recipes in the kitchen
           </h3>
           <h3 style={{ color: "var(--blue-600)" }}>
             Check out some of my favourite projects below. If you think we could
