@@ -1,9 +1,21 @@
-import { Box } from "drei";
-import React, { useMemo, useRef } from "react";
-import { useFrame } from "react-three-fiber";
-import { MeshBasicMaterial, Object3D } from "three";
+import { useGLTF } from "drei";
+import React, { useMemo, useRef, useState } from "react";
+import { useFrame, useThree } from "react-three-fiber";
+import { Mesh, MeshBasicMaterial, Object3D } from "three";
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+
+type GLTFResult = GLTF & {
+  nodes: {
+    Laptop_Model: THREE.Mesh;
+  };
+  materials: {};
+};
 
 export const BackgroundItems: React.FC = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { nodes } = useGLTF("/laptop.glb") as GLTFResult;
+
   const material = useMemo(
     () =>
       new MeshBasicMaterial({
@@ -14,21 +26,23 @@ export const BackgroundItems: React.FC = () => {
     []
   );
 
-  const boxRef = useRef<Object3D | null>(null);
+  const laptopRef = useRef<Mesh | null>(null);
 
   useFrame(() => {
-    if (boxRef.current) {
-      boxRef.current.rotateX(0.001);
-      boxRef.current.rotateY(0.002);
+    if (laptopRef.current) {
+      laptopRef.current.rotateX(0.001);
+      laptopRef.current.rotateY(0.002);
     }
   });
 
   return (
-    <Box
+    <mesh
       material={material}
-      scale={[100, 100, 100]}
-      position={[0, 0, -100]}
-      ref={boxRef}
+      geometry={nodes.Laptop_Model.geometry}
+      scale={[15, 15, 15]}
+      position={[0, 0, -250]}
+      rotation={[Math.PI / 4, 0, Math.PI]}
+      ref={laptopRef}
     />
   );
 };
