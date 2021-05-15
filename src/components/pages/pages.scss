@@ -1,5 +1,9 @@
 .portfolio-block {
-  img {
-    height: 50%;
+  display: flex;
+  justify-content: stretch;
+  transition: transform 0.25s ease-in-out;
+
+  &:hover {
+    transform: scale(1.01);
   }
 }

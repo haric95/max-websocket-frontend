@@ -2,9 +2,13 @@ import { useBlock } from "components/block/block";
 import { Plane } from "components/plane/plane";
 import { Html, HtmlProps } from "drei";
 import { stat } from "node:fs";
-import React from "react";
+import React, { useMemo } from "react";
 import { state } from "store/store";
-import { MeshBasicMaterialParameters, Texture } from "three/";
+import {
+  MeshBasicMaterial,
+  MeshBasicMaterialParameters,
+  Texture,
+} from "three/";
 
 type ContentProps = {
   side: "left" | "right";
@@ -26,6 +30,10 @@ export const Content: React.FC<ContentProps> = ({
   const planeHeight = contentMaxWidth / aspect;
   const pixelWidth = contentMaxWidth * state.zoom;
 
+  const material = useMemo(() => {
+    return new MeshBasicMaterial({ color: "green" });
+  }, []);
+
   return (
     <group position={[alignRight * (side === "left" ? -1 : 1), 0, 0]}>
       {map ? (
@@ -34,6 +42,7 @@ export const Content: React.FC<ContentProps> = ({
         <Plane
           scale={[contentMaxWidth, contentMaxWidth / aspect, 1]}
           color={color}
+          material={material}
         />
       )}
       <Html
