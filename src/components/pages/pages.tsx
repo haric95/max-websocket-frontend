@@ -1,19 +1,16 @@
+import ClevryImage from "assets/clevry.webp";
+import FutropolisImage from "assets/futropolis.webp";
+import GoogleTrustServicesImage from "assets/google-trust-services.webp";
+import LukeImage from "assets/luke-griffiths.webp";
 import { Block } from "components/block/block";
 import { Content } from "components/content/content";
 import { IconButton } from "components/icons/icon-button";
 import { EmailIcon, GithubIcon, LinkedinIcon } from "components/icons/icons";
-import React, { useContext } from "react";
-import FutropolisImage from "assets/futropolis.webp";
-import ClevryImage from "assets/clevry.webp";
-import LukeImage from "assets/luke-griffiths.webp";
-import GoogleTrustServicesImage from "assets/google-trust-services.webp";
-import { TweakContext } from "App";
+import React from "react";
 
 const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
 
 export const Pages: React.FC = () => {
-  const linkToExternal = () => {};
-  const { color } = useContext(TweakContext);
   return (
     <>
       <Block factor={1} offset={0}>
@@ -55,11 +52,8 @@ export const Pages: React.FC = () => {
         <Content side="right" className="portfolio-block" color={colors[1]}>
           <h1>Honeywell's Futropolis</h1>
           <h2 style={{ color: "var(--blue-600)" }}>
-            A{" "}
-            <span className="accent" style={{ color }}>
-              modern 3D web experience
-            </span>{" "}
-            I built whilst at{" "}
+            A <span className="accent">modern 3D web experience</span> I built
+            whilst at{" "}
             <a
               href="https://phantom.land"
               target="_blank"
@@ -136,10 +130,7 @@ export const Pages: React.FC = () => {
                 <img src={ClevryImage} alt="Clevry" />
               </a>
               <p style={{ color: "var(--blue-600)" }}>
-                A{" "}
-                <span className="accent" style={{ color }}>
-                  psychometrics testing platform
-                </span>{" "}
+                A <span className="accent">psychometrics testing platform</span>{" "}
                 I worked on whilst at{" "}
                 <a
                   href="https://avamae.co.uk"

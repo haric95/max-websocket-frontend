@@ -23,7 +23,8 @@ const App = () => {
 
   return (
     <>
-      <DatGuiWrapper>
+      {/* Uncomment to enable tweakpanes */}
+      {/* <DatGuiWrapper>
         <DatGUIContext.Consumer>
           {(context) => (
             <Canvas orthographic>
@@ -31,14 +32,22 @@ const App = () => {
                 <Suspense fallback={null}>
                   <color attach="background" args={[0.96, 0.95, 0.91]} />
                   <Pages />
-                  {/* <Room /> */}
+                  <Room />
                   <pointLight position={[10, 10, 0]} />
                 </Suspense>
               </TweakContext.Provider>
             </Canvas>
           )}
         </DatGUIContext.Consumer>
-      </DatGuiWrapper>
+      </DatGuiWrapper> */}
+      <Canvas orthographic>
+        <Suspense fallback={null}>
+          <color attach="background" args={[0.96, 0.95, 0.91]} />
+          <Pages />
+          {/* <Room /> */}
+          <pointLight position={[10, 10, 0]} />
+        </Suspense>
+      </Canvas>
       <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
         <div style={{ height: `${state.pages * 100}vh` }} />
       </div>
