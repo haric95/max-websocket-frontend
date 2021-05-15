@@ -20,4 +20,39 @@
       width: 60px;
     }
   }
+
+  .image-container {
+    pointer-events: all;
+    display: flex;
+    justify-content: flex-start;
+    height: 200px;
+
+    &.other-site-link {
+      height: unset;
+    }
+
+    img {
+      border: 4px solid $grey-900;
+      height: 100%;
+      transition: border-color 0.25s ease-in-out;
+      width: auto;
+
+      &:hover {
+        border-color: $white;
+      }
+    }
+  }
+
+  .others {
+    display: flex;
+    justify-content: space-between;
+
+    .other {
+      width: 30%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
 }
