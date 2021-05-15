@@ -21,7 +21,7 @@ export const Pages: React.FC = () => {
             with a focus on <span className="accent">front-end</span>
           </h2>
           <h3>
-            Outside of work you can find consuming excessive amount of music or
+            Outside of work you can find consuming excessive amounts of music or
             testing new recipies in the kitchen
           </h3>
           <h3 style={{ color: "var(--blue-600)" }}>
