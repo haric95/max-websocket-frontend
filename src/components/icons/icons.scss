@@ -1,0 +1,26 @@
+.icon-button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.25s ease-in-out;
+  position: relative;
+
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
+  path {
+    transition: fill 0.25s ease-in-out;
+  }
+
+  &:hover {
+    path,
+    polygon {
+      fill: $accent !important;
+    }
+  }
+}

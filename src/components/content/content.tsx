@@ -18,7 +18,7 @@ type ContentProps = {
 
 export const Content: React.FC<ContentProps> = ({
   side = "left",
-  color = "#bfe2ca",
+  color,
   map = null,
   children,
   ...props
@@ -41,7 +41,7 @@ export const Content: React.FC<ContentProps> = ({
       ) : (
         <Plane
           scale={[contentMaxWidth, contentMaxWidth / aspect, 1]}
-          color={color}
+          color={color ?? undefined}
           material={material}
         />
       )}
@@ -51,7 +51,6 @@ export const Content: React.FC<ContentProps> = ({
           textAlign: "left",
           top: -planeHeight / 2,
           height: planeHeight,
-          padding: 2,
         }}
         position={[-contentMaxWidth / 2, 0, 1]}
         {...props}

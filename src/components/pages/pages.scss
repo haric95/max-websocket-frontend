@@ -1,9 +1,23 @@
 .portfolio-block {
   display: flex;
-  justify-content: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
   transition: transform 0.25s ease-in-out;
+  pointer-events: none;
 
   &:hover {
     transform: scale(1.01);
+  }
+
+  .socials {
+    display: flex;
+
+    .icon {
+      height: 60px;
+      margin-right: 16px;
+      pointer-events: all;
+      width: 60px;
+    }
   }
 }

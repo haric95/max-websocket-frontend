@@ -1,3 +1,7 @@
+$grey-900: #393939;
+$blue-600: #2a5c85;
+$accent: #c053d5;
+
 html,
 body {
   background: #ffffff;
@@ -11,6 +15,10 @@ body {
   height: 100vh;
   overflow: hidden;
   width: 100vw;
+
+  --grey-900: #{$grey-900};
+  --blue-600: #{$blue-600};
+  --accent: #{$accent};
 }
 
 * {
@@ -41,8 +49,46 @@ canvas {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5 {
+  color: $grey-900;
+  font-family: "Manrope";
   margin: 0 0 8px;
 }
 
+h1 {
+  font-size: 8vh;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 5vh;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 4vh;
+  font-weight: 700;
+}
+
+p {
+  color: $grey-900;
+  font-family: "Lato";
+  font-size: 4vh;
+  font-weight: 500;
+}
+
+span {
+  font-family: inherit;
+  font-weight: inherit;
+
+  &.accent {
+    color: $accent;
+  }
+}
+
+.unstyled-link {
+}
+
 @import "./components/pages/pages.scss";
+@import "./components/icons/icons.scss";
