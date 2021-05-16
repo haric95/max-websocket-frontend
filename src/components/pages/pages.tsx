@@ -200,7 +200,7 @@ export const Pages: React.FC = () => {
                 <img src={Image2} alt="Clevry" />
               </div>
               <p style={{ color: "var(--blue-600)" }}>
-                Man and pidgeon in Krakow processed with a pixel sorter I wrote
+                Man and pigeon in Krakow processed with a pixel sorter I wrote
                 in <span className="accent">Processing</span>
               </p>
             </div>
