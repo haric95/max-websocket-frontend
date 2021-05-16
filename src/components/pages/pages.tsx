@@ -8,6 +8,10 @@ import { IconButton } from "components/icons/icon-button";
 import { EmailIcon, GithubIcon, LinkedinIcon } from "components/icons/icons";
 import React from "react";
 
+import Image1 from "assets/image-1.webp";
+import Image2 from "assets/image-2.webp";
+import Image4 from "assets/image-4.webp";
+
 const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
 
 export const Pages: React.FC = () => {
@@ -169,6 +173,50 @@ export const Pages: React.FC = () => {
               <p style={{ color: "var(--blue-600)" }}>
                 <span className="accent">Google's PKI site</span>. Built at
                 Phantom and for which I was the sole developer
+              </p>
+            </div>
+          </div>
+        </Content>
+      </Block>
+      <Block factor={-1} offset={4}>
+        <Content side="left" color={colors[3]} className="portfolio-block">
+          <h2>Here are a few favourite images I've made</h2>
+          <div className="others">
+            <div className="other">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={Image1} alt="Clevry" />
+              </div>
+              <p style={{ color: "var(--blue-600)" }}>
+                A double exposure from{" "}
+                <span className="accent">Jenny Holzer</span>'s Tate exhibition
+              </p>
+            </div>
+            <div className="other">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={Image2} alt="Clevry" />
+              </div>
+              <p style={{ color: "var(--blue-600)" }}>
+                Man and pidgeon in Krakow processed with a pixel sorter I wrote
+                in <span className="accent">Processing</span>
+              </p>
+            </div>
+            <div className="other">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={Image4} alt="Clevry" />
+              </div>
+              <p style={{ color: "var(--blue-600)" }}>
+                Blender donut made during{" "}
+                <span className="accent">Blender Guru</span>'s{" "}
+                <span className="accent">
+                  <a
+                    className="inline-link"
+                    href="https://youtu.be/TPrnSACiTJ4"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    infamous YouTube series
+                  </a>
+                </span>
               </p>
             </div>
           </div>
