@@ -1,7 +1,7 @@
-import { TweakContext } from "App";
 import { useGLTF } from "drei";
+import { useIsMobile } from "helpers/useIsMobile";
 import lerp from "lerp";
-import React, { MutableRefObject, useContext, useMemo, useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
@@ -88,7 +88,8 @@ export const BackgroundItems: React.FC = () => {
   const { calculateSize: calculateGeo1Size } = useBackgroundItem(6, 7.5, 180);
   const { calculateSize: calculateGeo3Size } = useBackgroundItem(7, 9, 180);
 
-  const material = useMemo(
+  const isMobile = useIsMobile();
+  const desktopMaterial = useMemo(
     () =>
       new MeshBasicMaterial({
         wireframe: true,
@@ -97,6 +98,16 @@ export const BackgroundItems: React.FC = () => {
       }),
     []
   );
+  const mobileMaterial = useMemo(
+    () =>
+      new MeshBasicMaterial({
+        wireframe: true,
+        color: "white",
+        wireframeLinewidth: 100,
+      }),
+    []
+  );
+  const material = isMobile ? mobileMaterial : desktopMaterial;
 
   const laptopRef = useRef<Mesh | null>(null);
   const cameraRef = useRef<Mesh | null>(null);
