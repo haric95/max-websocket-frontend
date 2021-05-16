@@ -220,7 +220,7 @@ export const Pages: React.FC = () => {
                 <img src={Image4} alt="Clevry" />
               </div>
               <p style={{ color: "var(--blue-600)" }}>
-                Blender donut made during{" "}
+                Blender donut made following{" "}
                 <span className="accent">Blender Guru</span>'s{" "}
                 <span className="accent">
                   <a
@@ -243,52 +243,70 @@ export const Pages: React.FC = () => {
           <div className="books">
             <div className="book">
               <div className="image-container unstyled-button site-link other-site-link">
-                <img src={InherentVice} alt="Clevry" />
-                <div className="text">
-                  <h3>
-                    Inherent Vice -{" "}
-                    <span className="accent">Thomas Pynchon</span>
-                  </h3>
-                  <p>
-                    Combining film-noir aesthtics with late-60s American
-                    hedonism, Pynchon weaves together this tale of Doc Sportello
-                    in his typical maximalist fashion
-                  </p>
-                </div>
+                <a
+                  href="https://www.goodreads.com/book/show/5933841-inherent-vice"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-link"
+                >
+                  <img src={InherentVice} alt="Clevry" />
+                </a>
+              </div>
+              <div className="text">
+                <h3>
+                  Inherent Vice - <span className="accent">Thomas Pynchon</span>
+                </h3>
+                <p>
+                  Combining film-noir aesthtics with late-60s American hedonism,
+                  Pynchon weaves together this tale of private investigator Doc
+                  Sportello in his typical maximalist fashion
+                </p>
               </div>
             </div>
           </div>
           <div className="books">
             <div className="book">
               <div className="image-container unstyled-button site-link other-site-link">
-                <img src={VermillionSands} alt="Clevry" />
-                <div className="text">
-                  <h3>
-                    Vermillion Sands -{" "}
-                    <span className="accent">J.G. Ballard</span>
-                  </h3>
-                  <p>
-                    A collection of short-stories set in the decaying desert
-                    resort of Vermillion Sands. The details Ballard chooses
-                    leaves out are what make this collection so special
-                  </p>
-                </div>
+                <a
+                  href="https://www.goodreads.com/book/show/70238.Vermilion_Sands"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-link"
+                >
+                  <img src={VermillionSands} alt="Clevry" />
+                </a>
+              </div>
+              <div className="text">
+                <h3>
+                  Vermillion Sands -{" "}
+                  <span className="accent">J.G. Ballard</span>
+                </h3>
+                <p>
+                  A collection of short-stories set in the decaying desert
+                  resort of Vermillion Sands. The details Ballard chooses leaves
+                  out are what make this collection so special
+                </p>
               </div>
             </div>
           </div>
           <div className="books">
             <div className="book">
               <div className="image-container unstyled-button site-link other-site-link">
-                <img src={RustBook} alt="Clevry" />
-                <div className="text">
-                  <h3>
-                    The Rust Book -{" "}
-                    <span className="accent">
-                      Carol Nichols & Steve Klabnik
-                    </span>
-                  </h3>
-                  <p>Must-read for wishing to dive into Rust</p>
-                </div>
+                <a
+                  href="https://doc.rust-lang.org/book/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-link"
+                >
+                  <img src={RustBook} alt="Clevry" />
+                </a>
+              </div>
+              <div className="text">
+                <h3>
+                  The Rust Book -{" "}
+                  <span className="accent">Carol Nichols & Steve Klabnik</span>
+                </h3>
+                <p>Must-read for those wishing to dive into Rust</p>
               </div>
             </div>
           </div>
@@ -298,7 +316,16 @@ export const Pages: React.FC = () => {
         <Content side="right" color={colors[6]} className="portfolio-block">
           <h2>
             Finally - here are a couple of meshes I've made working with{" "}
-            <span className="accent">Houdini</span>
+            <span className="accent">
+              <a
+                href="https://www.sidefx.com/products/houdini/"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-link"
+              >
+                Houdini
+              </a>
+            </span>
           </h2>
           <h3>My goal is to 3D print these to PLA and then cast into metal</h3>
         </Content>
