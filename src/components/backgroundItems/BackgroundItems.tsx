@@ -6,9 +6,16 @@ import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
-type GLTFResult = GLTF & {
+type GLTFLaptopResult = GLTF & {
   nodes: {
     Laptop_Model: THREE.Mesh;
+  };
+  materials: {};
+};
+
+type GLTFCameraResult = GLTF & {
+  nodes: {
+    Camera: THREE.Mesh;
   };
   materials: {};
 };
@@ -65,9 +72,11 @@ export const useBackgroundItem = (
 };
 
 export const BackgroundItems: React.FC = () => {
-  const { nodes } = useGLTF("/laptop.glb") as GLTFResult;
+  const { nodes: laptopNodes } = useGLTF("/laptop.glb") as GLTFLaptopResult;
+  const { nodes: cameraNodes } = useGLTF("/camera.glb") as GLTFCameraResult;
 
-  const { calculateSize } = useBackgroundItem(0, 4, 15);
+  const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
+  const { calculateSize: calculateCameraSize } = useBackgroundItem(3.5, 5, 15);
 
   const material = useMemo(
     () =>
@@ -80,26 +89,46 @@ export const BackgroundItems: React.FC = () => {
   );
 
   const laptopRef = useRef<Mesh | null>(null);
+  const cameraRef = useRef<Mesh | null>(null);
 
   useFrame(() => {
     if (laptopRef.current) {
       laptopRef.current.rotateX(0.001);
       laptopRef.current.rotateY(0.002);
       const currentScale = laptopRef.current.scale.x;
-      const targetScale = calculateSize(state.top.current);
+      const targetScale = calculateLaptopSize(state.top.current);
       const newScale = lerp(currentScale, targetScale, 0.05);
       laptopRef.current.scale.set(newScale, newScale, newScale);
+    }
+
+    if (cameraRef.current) {
+      cameraRef.current.rotateX(-0.001);
+      cameraRef.current.rotateY(-0.002);
+      const currentScale = cameraRef.current.scale.x;
+      const targetScale = calculateCameraSize(state.top.current);
+      const newScale = lerp(currentScale, targetScale, 0.05);
+      cameraRef.current.scale.set(newScale, newScale, newScale);
     }
   });
 
   return (
-    <mesh
-      material={material}
-      geometry={nodes.Laptop_Model.geometry}
-      scale={[15, 15, 15]}
-      position={[0, 0, -250]}
-      rotation={[Math.PI / 4, 0, Math.PI]}
-      ref={laptopRef}
-    />
+    <>
+      <mesh
+        material={material}
+        geometry={laptopNodes.Laptop_Model.geometry}
+        scale={[15, 15, 15]}
+        position={[0, 0, -250]}
+        rotation={[Math.PI / 4, 0, Math.PI]}
+        ref={laptopRef}
+      />
+      <mesh
+        material={material}
+        geometry={cameraNodes.Camera.geometry}
+        scale={[0, 0, 0]}
+        position={[0, 0, -250]}
+        rotation={[0.6, 0.3, 0]}
+        ref={cameraRef}
+      />
+    </>
   );
 };
