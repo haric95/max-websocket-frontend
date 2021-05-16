@@ -15,10 +15,12 @@ import Image4 from "assets/image-4.webp";
 import RustBook from "assets/rust-book.webp";
 import InherentVice from "assets/inherent-vice.webp";
 import VermillionSands from "assets/vermillion-sands.webp";
+import { useIsMobile } from "helpers/useIsMobile";
 
 const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
 
 export const Pages: React.FC = () => {
+  const isMobile = useIsMobile();
   return (
     <>
       <Block factor={1} offset={0}>
@@ -56,7 +58,7 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={-1} offset={1}>
+      <Block factor={isMobile ? 1 : -1} offset={1}>
         <Content side="right" className="portfolio-block" color={colors[1]}>
           <h1>Honeywell's Futropolis</h1>
           <h2 style={{ color: "var(--blue-600)" }}>
@@ -124,7 +126,7 @@ export const Pages: React.FC = () => {
           </h2>
         </Content>
       </Block>
-      <Block factor={-1} offset={3}>
+      <Block factor={isMobile ? 1 : -1} offset={3}>
         <Content side="right" color={colors[3]} className="portfolio-block">
           <h1>Others</h1>
           <div className="others">
@@ -182,7 +184,7 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={-1} offset={4}>
+      <Block factor={isMobile ? 1 : -1} offset={4}>
         <Content side="left" color={colors[3]} className="portfolio-block">
           <h2>Here are a few favourite images I've made</h2>
           <div className="others">
@@ -226,7 +228,7 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={-1} offset={5}>
+      <Block factor={isMobile ? 1 : -1} offset={5}>
         <Content side="right" color={colors[3]} className="portfolio-block">
           <h2>And some books I've enjoyed recently</h2>
           <div className="books">
@@ -283,7 +285,7 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={-1} offset={6}>
+      <Block factor={isMobile ? 1 : -1} offset={6}>
         <Content side="right" color={colors[3]} className="portfolio-block">
           <h2>
             Finally - here are a couple of meshes I've made working with{" "}
