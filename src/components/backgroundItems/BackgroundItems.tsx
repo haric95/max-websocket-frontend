@@ -7,23 +7,11 @@ import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
-type GLTFLaptopResult = GLTF & {
+type GLTFSectionsResult = GLTF & {
   nodes: {
-    Laptop_Model: THREE.Mesh;
-  };
-  materials: {};
-};
-
-type GLTFCameraResult = GLTF & {
-  nodes: {
-    Camera: THREE.Mesh;
-  };
-  materials: {};
-};
-
-type GLTFBookResult = GLTF & {
-  nodes: {
-    Books: THREE.Mesh;
+    laptop: THREE.Mesh;
+    books: THREE.Mesh;
+    camera: THREE.Mesh;
   };
   materials: {};
 };
@@ -80,13 +68,13 @@ export const useBackgroundItem = (
 };
 
 export const BackgroundItems: React.FC = () => {
-  const { nodes: laptopNodes } = useGLTF("/laptop.glb") as GLTFLaptopResult;
-  const { nodes: cameraNodes } = useGLTF("/camera.glb") as GLTFCameraResult;
-  const { nodes: bookNodes } = useGLTF("/books.glb") as GLTFBookResult;
+  const { nodes: sectionsNodes } = useGLTF(
+    "/sections.glb"
+  ) as GLTFSectionsResult;
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
   const { calculateSize: calculateCameraSize } = useBackgroundItem(3, 4.5, 15);
-  const { calculateSize: calculateBookSize } = useBackgroundItem(4, 6.5, 300);
+  const { calculateSize: calculateBookSize } = useBackgroundItem(4, 6.5, 15);
 
   const material = useMemo(
     () =>
@@ -135,7 +123,7 @@ export const BackgroundItems: React.FC = () => {
     <>
       <mesh
         material={material}
-        geometry={laptopNodes.Laptop_Model.geometry}
+        geometry={sectionsNodes.laptop.geometry}
         scale={[0, 0, 0]}
         position={[0, 0, -250]}
         rotation={[Math.PI / 4, 0, Math.PI]}
@@ -143,7 +131,7 @@ export const BackgroundItems: React.FC = () => {
       />
       <mesh
         material={material}
-        geometry={cameraNodes.Camera.geometry}
+        geometry={sectionsNodes.camera.geometry}
         scale={[0, 0, 0]}
         position={[0, 0, -250]}
         rotation={[0.6, 0.3, 0]}
@@ -151,7 +139,7 @@ export const BackgroundItems: React.FC = () => {
       />
       <mesh
         material={material}
-        geometry={bookNodes.Books.geometry}
+        geometry={sectionsNodes.books.geometry}
         scale={[0, 0, 0]}
         position={[0, 0, -250]}
         rotation={[2, 0, 0]}
