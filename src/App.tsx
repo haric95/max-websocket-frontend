@@ -26,7 +26,7 @@ const App = () => {
   return (
     <>
       {/* Uncomment to enable tweakpanes */}
-      <DatGuiWrapper>
+      {/* <DatGuiWrapper>
         <DatGUIContext.Consumer>
           {(context) => (
             <Canvas orthographic>
@@ -41,15 +41,15 @@ const App = () => {
             </Canvas>
           )}
         </DatGUIContext.Consumer>
-      </DatGuiWrapper>
-      {/* <Canvas orthographic>
+      </DatGuiWrapper> */}
+      <Canvas orthographic>
         <Suspense fallback={null}>
           <Camera />
           <color attach="background" args={[0.96, 0.95, 0.91]} />
           <Pages />
           <BackgroundItems />
         </Suspense>
-      </Canvas> */}
+      </Canvas>
       <div className="scrollArea" ref={scrollArea} onScroll={onScroll}>
         <div style={{ height: `${state.pages * 100}vh` }} />
       </div>
