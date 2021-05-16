@@ -1,6 +1,7 @@
+import { TweakContext } from "App";
 import { useGLTF } from "drei";
 import lerp from "lerp";
-import React, { useMemo, useRef } from "react";
+import React, { useContext, useMemo, useRef } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
@@ -16,6 +17,13 @@ type GLTFLaptopResult = GLTF & {
 type GLTFCameraResult = GLTF & {
   nodes: {
     Camera: THREE.Mesh;
+  };
+  materials: {};
+};
+
+type GLTFBookResult = GLTF & {
+  nodes: {
+    Books: THREE.Mesh;
   };
   materials: {};
 };
@@ -74,9 +82,11 @@ export const useBackgroundItem = (
 export const BackgroundItems: React.FC = () => {
   const { nodes: laptopNodes } = useGLTF("/laptop.glb") as GLTFLaptopResult;
   const { nodes: cameraNodes } = useGLTF("/camera.glb") as GLTFCameraResult;
+  const { nodes: bookNodes } = useGLTF("/books.glb") as GLTFBookResult;
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
   const { calculateSize: calculateCameraSize } = useBackgroundItem(3.5, 5, 15);
+  const { calculateSize: calculateBookSize } = useBackgroundItem(5, 8, 300);
 
   const material = useMemo(
     () =>
@@ -90,6 +100,7 @@ export const BackgroundItems: React.FC = () => {
 
   const laptopRef = useRef<Mesh | null>(null);
   const cameraRef = useRef<Mesh | null>(null);
+  const bookRef = useRef<Mesh | null>(null);
 
   useFrame(() => {
     if (laptopRef.current) {
@@ -108,6 +119,15 @@ export const BackgroundItems: React.FC = () => {
       const targetScale = calculateCameraSize(state.top.current);
       const newScale = lerp(currentScale, targetScale, 0.05);
       cameraRef.current.scale.set(newScale, newScale, newScale);
+    }
+
+    if (bookRef.current) {
+      bookRef.current.rotateZ(-0.002);
+      bookRef.current.rotateX(-0.0005);
+      const currentScale = bookRef.current.scale.x;
+      const targetScale = calculateBookSize(state.top.current);
+      const newScale = lerp(currentScale, targetScale, 0.05);
+      bookRef.current.scale.set(newScale, newScale, newScale);
     }
   });
 
@@ -128,6 +148,14 @@ export const BackgroundItems: React.FC = () => {
         position={[0, 0, -250]}
         rotation={[0.6, 0.3, 0]}
         ref={cameraRef}
+      />
+      <mesh
+        material={material}
+        geometry={bookNodes.Books.geometry}
+        scale={[0, 0, 0]}
+        position={[0, 0, -250]}
+        rotation={[2, 0, 0]}
+        ref={bookRef}
       />
     </>
   );
