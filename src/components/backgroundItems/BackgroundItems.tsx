@@ -1,4 +1,5 @@
 import { useGLTF } from "drei";
+import lerp from "lerp";
 import React, { useMemo, useRef } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
@@ -84,8 +85,10 @@ export const BackgroundItems: React.FC = () => {
     if (laptopRef.current) {
       laptopRef.current.rotateX(0.001);
       laptopRef.current.rotateY(0.002);
-      const scale = calculateSize(state.top.current);
-      laptopRef.current.scale.set(scale, scale, scale);
+      const currentScale = laptopRef.current.scale.x;
+      const targetScale = calculateSize(state.top.current);
+      const newScale = lerp(currentScale, targetScale, 0.05);
+      laptopRef.current.scale.set(newScale, newScale, newScale);
     }
   });
 
