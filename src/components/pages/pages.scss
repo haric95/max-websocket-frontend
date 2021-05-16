@@ -47,8 +47,17 @@
     display: flex;
     justify-content: space-between;
 
+    @include bp("tablet") {
+      flex-direction: column;
+    }
+
     .other {
       width: 30%;
+
+      @include bp("tablet") {
+        margin-bottom: 16px;
+        width: 85%;
+      }
 
       img {
         width: 100%;
@@ -66,14 +75,28 @@
       flex-direction: row;
       margin-bottom: 32px;
 
+      @include bp("tablet") {
+        height: auto;
+        align-items: inherit;
+        width: 85%;
+      }
+
       .text {
         display: flex;
         flex-direction: column;
         margin-left: 16px;
+
+        @include bp("tablet") {
+          margin-left: 0;
+        }
       }
 
       img {
         height: 100%;
+
+        @include bp("tablet") {
+          display: none;
+        }
       }
     }
   }

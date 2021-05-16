@@ -1,7 +1,7 @@
+import lerp from "lerp";
 import React, { createContext, useContext, useRef } from "react";
 import { Object3DNode, useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
-import lerp from "lerp";
 import { Group, Vector3 } from "three";
 
 const offsetContext = createContext(0);

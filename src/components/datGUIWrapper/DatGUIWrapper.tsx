@@ -16,7 +16,8 @@ export const DatGuiWrapper: React.FC = ({ children }) => {
     data: {
       string: "Hello World",
       minMaxNumber: 66,
-      number: 80,
+      number: 0,
+      number2: 0,
       boolean: true,
       select: "one",
       color: "#2FA1D6",
@@ -41,7 +42,8 @@ export const DatGuiWrapper: React.FC = ({ children }) => {
         style={{ zIndex: 1 }}
       >
         <DatString path="string" label="String" />
-        <DatNumber path="number" label="Number" min={0} max={1000} step={10} />
+        <DatNumber path="number" label="Number" min={0} max={3} step={0.01} />
+        <DatNumber path="number2" label="Number2" min={0} max={3} step={0.01} />
         <DatBoolean path="boolean" label="Boolean" />
         <DatSelect
           label="Select"
