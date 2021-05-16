@@ -136,7 +136,7 @@ export const BackgroundItems: React.FC = () => {
       <mesh
         material={material}
         geometry={laptopNodes.Laptop_Model.geometry}
-        scale={[15, 15, 15]}
+        scale={[0, 0, 0]}
         position={[0, 0, -250]}
         rotation={[Math.PI / 4, 0, Math.PI]}
         ref={laptopRef}
