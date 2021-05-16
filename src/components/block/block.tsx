@@ -52,7 +52,7 @@ export const useBlock = () => {
   const canvasHeight = viewportHeight;
   const isMobile = size.width < 768;
   const margin = isMobile ? 0.1 : 0.8;
-  const contentMaxWidth = canvasWidth * (isMobile ? 0.8 : 0.6);
+  const contentMaxWidth = canvasWidth * (isMobile ? 0.95 : 0.6);
   // 1 page is 100vh scroll distance. So 3 pages would be a height of 300vh.
   // Sections is the number of sections this distance is divided up into.
   // Subtract 1 as pages and sections include 0 index.
