@@ -94,7 +94,7 @@ export const BackgroundItems: React.FC = () => {
       new MeshBasicMaterial({
         wireframe: true,
         color: "black",
-        wireframeLinewidth: 100,
+        wireframeLinewidth: 4,
       }),
     []
   );
@@ -103,7 +103,7 @@ export const BackgroundItems: React.FC = () => {
       new MeshBasicMaterial({
         wireframe: true,
         color: "white",
-        wireframeLinewidth: 100,
+        wireframeLinewidth: 4,
       }),
     []
   );
