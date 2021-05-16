@@ -42,7 +42,7 @@ export const Pages: React.FC = () => {
             />
             <IconButton
               icon={EmailIcon}
-              href="mailto:someone@yoursite.com"
+              href="mailto:hari-c@hotmail.co.uk"
               className="icon"
             />
           </div>
@@ -62,7 +62,7 @@ export const Pages: React.FC = () => {
             >
               Phantom
             </a>{" "}
-            built with <span className="accent">react-three-fiber</span> and{" "}
+            using <span className="accent">react-three-fiber</span> and{" "}
             <span className="accent">Next.js</span>
           </h2>
           <a
