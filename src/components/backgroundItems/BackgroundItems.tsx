@@ -1,7 +1,7 @@
 import { TweakContext } from "App";
 import { useGLTF } from "drei";
 import lerp from "lerp";
-import React, { useContext, useMemo, useRef } from "react";
+import React, { MutableRefObject, useContext, useMemo, useRef } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
@@ -12,6 +12,15 @@ type GLTFSectionsResult = GLTF & {
     laptop: THREE.Mesh;
     books: THREE.Mesh;
     camera: THREE.Mesh;
+  };
+  materials: {};
+};
+
+type GLTFGeosResult = GLTF & {
+  nodes: {
+    geo1: THREE.Mesh;
+    geo2: THREE.Mesh;
+    geo3: THREE.Mesh;
   };
   materials: {};
 };
@@ -71,10 +80,13 @@ export const BackgroundItems: React.FC = () => {
   const { nodes: sectionsNodes } = useGLTF(
     "/sections.glb"
   ) as GLTFSectionsResult;
+  const { nodes: geosNodes } = useGLTF("/geos.glb") as GLTFGeosResult;
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
   const { calculateSize: calculateCameraSize } = useBackgroundItem(3, 4.5, 15);
   const { calculateSize: calculateBookSize } = useBackgroundItem(4, 6.5, 15);
+  const { calculateSize: calculateGeo1Size } = useBackgroundItem(6, 7.5, 180);
+  const { calculateSize: calculateGeo3Size } = useBackgroundItem(7, 9, 180);
 
   const material = useMemo(
     () =>
@@ -90,32 +102,42 @@ export const BackgroundItems: React.FC = () => {
   const cameraRef = useRef<Mesh | null>(null);
   const bookRef = useRef<Mesh | null>(null);
 
+  const geo1Ref = useRef<Mesh | null>(null);
+  const geo3Ref = useRef<Mesh | null>(null);
+
+  const updateScale = (element: Mesh, calculator: (num: number) => number) => {
+    const currentScale = element.scale.x;
+    const targetScale = calculator(state.top.current);
+    const newScale = lerp(currentScale, targetScale, 0.05);
+    element.scale.set(newScale, newScale, newScale);
+  };
+
   useFrame(() => {
     if (laptopRef.current) {
       laptopRef.current.rotateX(0.001);
       laptopRef.current.rotateY(0.002);
-      const currentScale = laptopRef.current.scale.x;
-      const targetScale = calculateLaptopSize(state.top.current);
-      const newScale = lerp(currentScale, targetScale, 0.05);
-      laptopRef.current.scale.set(newScale, newScale, newScale);
+      updateScale(laptopRef.current, calculateLaptopSize);
     }
 
     if (cameraRef.current) {
       cameraRef.current.rotateX(-0.001);
       cameraRef.current.rotateY(-0.002);
-      const currentScale = cameraRef.current.scale.x;
-      const targetScale = calculateCameraSize(state.top.current);
-      const newScale = lerp(currentScale, targetScale, 0.05);
-      cameraRef.current.scale.set(newScale, newScale, newScale);
+      updateScale(cameraRef.current, calculateCameraSize);
     }
 
     if (bookRef.current) {
       bookRef.current.rotateZ(-0.002);
       bookRef.current.rotateX(-0.0005);
-      const currentScale = bookRef.current.scale.x;
-      const targetScale = calculateBookSize(state.top.current);
-      const newScale = lerp(currentScale, targetScale, 0.05);
-      bookRef.current.scale.set(newScale, newScale, newScale);
+      updateScale(bookRef.current, calculateBookSize);
+    }
+
+    if (geo1Ref.current && geo3Ref.current) {
+      geo1Ref.current.rotateZ(-0.002);
+      geo1Ref.current.rotateX(-0.0005);
+      updateScale(geo1Ref.current, calculateGeo1Size);
+      geo3Ref.current.rotateZ(-0.002);
+      geo3Ref.current.rotateX(-0.0005);
+      updateScale(geo3Ref.current, calculateGeo3Size);
     }
   });
 
@@ -144,6 +166,22 @@ export const BackgroundItems: React.FC = () => {
         position={[0, 0, -250]}
         rotation={[2, 0, 0]}
         ref={bookRef}
+      />
+      <mesh
+        material={material}
+        geometry={geosNodes.geo1.geometry}
+        scale={[0, 0, 0]}
+        position={[0, 0, -250]}
+        rotation={[Math.PI / 2 + 0.2, 0, 0]}
+        ref={geo1Ref}
+      />
+      <mesh
+        material={material}
+        geometry={geosNodes.geo3.geometry}
+        scale={[0, 0, 0]}
+        position={[0, 0, -250]}
+        rotation={[Math.PI / 2 + 0.2, 0, 0]}
+        ref={geo3Ref}
       />
     </>
   );

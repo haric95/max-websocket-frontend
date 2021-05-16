@@ -283,6 +283,15 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
+      <Block factor={-1} offset={6}>
+        <Content side="right" color={colors[3]} className="portfolio-block">
+          <h2>
+            Finally - here are a couple of meshes I've made working with{" "}
+            <span className="accent">Houdini</span>
+          </h2>
+          <h3>My goal is to 3D print these to PLA and then cast into metal</h3>
+        </Content>
+      </Block>
     </>
   );
 };
