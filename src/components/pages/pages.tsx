@@ -122,8 +122,7 @@ export const Pages: React.FC = () => {
             hackathon
           </h2>
           <h2>
-            Our site is still a work in progress, but you can check out our
-            pitch{" "}
+            Our site is still a work in progress, but you can watch our pitch{" "}
             <a
               className="inline-link"
               href="https://youtu.be/sfegAzGsFgg?t=3835"
@@ -198,7 +197,7 @@ export const Pages: React.FC = () => {
           <h2>Here are a few favourite images I've made</h2>
           <div className="others">
             <div className="other">
-              <div className="image-container unstyled-button site-link other-site-link">
+              <div className="photo">
                 <img src={Image1} alt="Clevry" />
               </div>
               <p style={{ color: "var(--blue-600)" }}>
@@ -207,7 +206,7 @@ export const Pages: React.FC = () => {
               </p>
             </div>
             <div className="other">
-              <div className="image-container unstyled-button site-link other-site-link">
+              <div className="photo">
                 <img src={Image2} alt="Clevry" />
               </div>
               <p style={{ color: "var(--blue-600)" }}>
@@ -216,7 +215,7 @@ export const Pages: React.FC = () => {
               </p>
             </div>
             <div className="other">
-              <div className="image-container unstyled-button site-link other-site-link">
+              <div className="photo">
                 <img src={Image4} alt="Clevry" />
               </div>
               <p style={{ color: "var(--blue-600)" }}>
