@@ -12,6 +12,10 @@ import Image1 from "assets/image-1.webp";
 import Image2 from "assets/image-2.webp";
 import Image4 from "assets/image-4.webp";
 
+import RustBook from "assets/rust-book.webp";
+import InherentVice from "assets/inherent-vice.webp";
+import VermillionSands from "assets/vermillion-sands.webp";
+
 const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
 
 export const Pages: React.FC = () => {
@@ -218,6 +222,63 @@ export const Pages: React.FC = () => {
                   </a>
                 </span>
               </p>
+            </div>
+          </div>
+        </Content>
+      </Block>
+      <Block factor={-1} offset={5}>
+        <Content side="right" color={colors[3]} className="portfolio-block">
+          <h2>And some books I've enjoyed recently</h2>
+          <div className="books">
+            <div className="book">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={InherentVice} alt="Clevry" />
+                <div className="text">
+                  <h3>
+                    Inherent Vice -{" "}
+                    <span className="accent">Thomas Pynchon</span>
+                  </h3>
+                  <p>
+                    Combining film-noir aesthtics with late-60s American
+                    hedonism, Pynchon weaves together this tale of Doc Sportello
+                    in his typical maximalist fashion
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="books">
+            <div className="book">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={VermillionSands} alt="Clevry" />
+                <div className="text">
+                  <h3>
+                    Vermillion Sands -{" "}
+                    <span className="accent">J.G. Ballard</span>
+                  </h3>
+                  <p>
+                    A collection of short-stories set in the decaying desert
+                    resort of Vermillion Sands. The details Ballard chooses
+                    leaves out are what make this collection so special
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="books">
+            <div className="book">
+              <div className="image-container unstyled-button site-link other-site-link">
+                <img src={RustBook} alt="Clevry" />
+                <div className="text">
+                  <h3>
+                    The Rust Book -{" "}
+                    <span className="accent">
+                      Carol Nichols & Steve Klabnik
+                    </span>
+                  </h3>
+                  <p>Must-read for wishing to dive into Rust</p>
+                </div>
+              </div>
             </div>
           </div>
         </Content>
