@@ -86,7 +86,7 @@ export const BackgroundItems: React.FC = () => {
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
   const { calculateSize: calculateCameraSize } = useBackgroundItem(3.5, 5, 15);
-  const { calculateSize: calculateBookSize } = useBackgroundItem(5, 8, 300);
+  const { calculateSize: calculateBookSize } = useBackgroundItem(4.5, 6, 300);
 
   const material = useMemo(
     () =>
