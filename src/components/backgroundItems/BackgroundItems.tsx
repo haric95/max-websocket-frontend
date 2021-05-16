@@ -85,8 +85,8 @@ export const BackgroundItems: React.FC = () => {
   const { nodes: bookNodes } = useGLTF("/books.glb") as GLTFBookResult;
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
-  const { calculateSize: calculateCameraSize } = useBackgroundItem(3.5, 5, 15);
-  const { calculateSize: calculateBookSize } = useBackgroundItem(4.5, 6, 300);
+  const { calculateSize: calculateCameraSize } = useBackgroundItem(3, 4.5, 15);
+  const { calculateSize: calculateBookSize } = useBackgroundItem(4, 6.5, 300);
 
   const material = useMemo(
     () =>
