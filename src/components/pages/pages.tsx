@@ -6,7 +6,7 @@ import { Block } from "components/block/block";
 import { Content } from "components/content/content";
 import { IconButton } from "components/icons/icon-button";
 import { EmailIcon, GithubIcon, LinkedinIcon } from "components/icons/icons";
-import React from "react";
+import React, { useContext } from "react";
 
 import Image1 from "assets/image-1.webp";
 import Image2 from "assets/image-2.webp";
@@ -16,8 +16,17 @@ import RustBook from "assets/rust-book.webp";
 import InherentVice from "assets/inherent-vice.webp";
 import VermillionSands from "assets/vermillion-sands.webp";
 import { useIsMobile } from "helpers/useIsMobile";
+import { TweakContext } from "App";
 
-const colors = ["#B5D3DD", "#D9A59E", "#E3E37E", "#B5DFB6"];
+const colors = [
+  "#B5D3DD",
+  "#D9A59E",
+  "#FFDBA2",
+  "#B5DFB6",
+  "#F8DAFF",
+  "#B1EADC",
+  "#E6E6E6",
+];
 
 export const Pages: React.FC = () => {
   const isMobile = useIsMobile();
@@ -184,8 +193,8 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={isMobile ? 1 : -1} offset={4}>
-        <Content side="left" color={colors[3]} className="portfolio-block">
+      <Block factor={1} offset={4}>
+        <Content side="left" color={colors[4]} className="portfolio-block">
           <h2>Here are a few favourite images I've made</h2>
           <div className="others">
             <div className="other">
@@ -229,7 +238,7 @@ export const Pages: React.FC = () => {
         </Content>
       </Block>
       <Block factor={isMobile ? 1 : -1} offset={5}>
-        <Content side="right" color={colors[3]} className="portfolio-block">
+        <Content side="right" color={colors[5]} className="portfolio-block">
           <h2>And some books I've enjoyed recently</h2>
           <div className="books">
             <div className="book">
@@ -285,8 +294,8 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={isMobile ? 1 : -1} offset={6}>
-        <Content side="right" color={colors[3]} className="portfolio-block">
+      <Block factor={1} offset={6}>
+        <Content side="right" color={colors[6]} className="portfolio-block">
           <h2>
             Finally - here are a couple of meshes I've made working with{" "}
             <span className="accent">Houdini</span>
