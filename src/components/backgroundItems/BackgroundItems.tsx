@@ -1,7 +1,8 @@
+import { ThemeContext } from "App";
 import { useGLTF } from "drei";
 import { useIsMobile } from "helpers/useIsMobile";
 import lerp from "lerp";
-import React, { useMemo, useRef } from "react";
+import React, { useContext, useMemo, useRef } from "react";
 import { useFrame, useThree } from "react-three-fiber";
 import { state } from "store/store";
 import { Mesh, MeshBasicMaterial } from "three";
@@ -89,6 +90,7 @@ export const BackgroundItems: React.FC = () => {
   const { calculateSize: calculateGeo3Size } = useBackgroundItem(7, 9, 180);
 
   const isMobile = useIsMobile();
+  const { isAccesibilityMode } = useContext(ThemeContext);
   const desktopMaterial = useMemo(
     () =>
       new MeshBasicMaterial({
@@ -107,7 +109,8 @@ export const BackgroundItems: React.FC = () => {
       }),
     []
   );
-  const material = isMobile ? mobileMaterial : desktopMaterial;
+  const material =
+    isMobile || isAccesibilityMode ? mobileMaterial : desktopMaterial;
 
   const laptopRef = useRef<Mesh | null>(null);
   const cameraRef = useRef<Mesh | null>(null);

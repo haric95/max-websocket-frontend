@@ -1,8 +1,9 @@
+import { ThemeContext } from "App";
 import { useBlock } from "components/block/block";
 import { Plane } from "components/plane/plane";
 import { Html, HtmlProps } from "drei";
 import { stat } from "node:fs";
-import React, { useMemo } from "react";
+import React, { useContext, useMemo } from "react";
 import { state } from "store/store";
 import {
   MeshBasicMaterial,

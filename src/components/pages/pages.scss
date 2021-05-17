@@ -10,6 +10,16 @@
     transform: scale(1.01);
   }
 
+  .bottom-bar {
+    align-items: flex-end;
+    justify-content: space-between;
+    display: flex;
+
+    @include bp("tablet") {
+      flex-direction: column;
+    }
+  }
+
   .socials {
     display: flex;
 
@@ -19,6 +29,10 @@
       pointer-events: all;
       width: 60px;
     }
+  }
+
+  .accessibility-info {
+    display: inline;
   }
 
   .image-container {

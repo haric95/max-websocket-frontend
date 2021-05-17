@@ -1,3 +1,5 @@
+import { ThemeContext } from "App";
+import { useIsMobile } from "helpers/useIsMobile";
 import lerp from "lerp";
 import React, { createContext, useContext, useRef } from "react";
 import { Object3DNode, useFrame, useThree } from "react-three-fiber";
@@ -18,6 +20,8 @@ export const Block: React.FC<BlockProps> = ({
   ...props
 }) => {
   const { offset: parentOffset, sectionHeight } = useBlock();
+  const { isAccesibilityMode } = useContext(ThemeContext);
+  const isMobile = useIsMobile();
   const ref = useRef<Object3DNode<Group, any> | null>(null);
   offset = offset !== undefined ? offset : parentOffset;
 
@@ -28,7 +32,7 @@ export const Block: React.FC<BlockProps> = ({
       (ref.current.position as Vector3).y = lerp(
         curY,
         (curTop / state.zoom) * factor,
-        0.05
+        isAccesibilityMode || isMobile ? 0.8 : 0.1
       );
     }
   });

@@ -16,7 +16,7 @@ import RustBook from "assets/rust-book.webp";
 import InherentVice from "assets/inherent-vice.webp";
 import VermillionSands from "assets/vermillion-sands.webp";
 import { useIsMobile } from "helpers/useIsMobile";
-import { TweakContext } from "App";
+import { ThemeContext, TweakContext } from "App";
 
 const colors = [
   "#B5D3DD",
@@ -30,6 +30,8 @@ const colors = [
 
 export const Pages: React.FC = () => {
   const isMobile = useIsMobile();
+  const { isAccesibilityMode } = useContext(ThemeContext);
+  const isSimpleLayout = isMobile || isAccesibilityMode;
   return (
     <>
       <Block factor={1} offset={0}>
@@ -48,26 +50,31 @@ export const Pages: React.FC = () => {
             work together{" "}
             <span className="accent">feel free to get in touch</span>
           </h3>
-          <div className="socials">
-            <IconButton
-              icon={GithubIcon}
-              href="https://github.com/haric95"
-              className="icon"
-            />
-            <IconButton
-              icon={LinkedinIcon}
-              href="https://www.linkedin.com/in/hari-chauhan-a07213122/"
-              className="icon"
-            />
-            <IconButton
-              icon={EmailIcon}
-              href="mailto:hari-c@hotmail.co.uk"
-              className="icon"
-            />
+          <div className="bottom-bar">
+            <div className="socials">
+              <IconButton
+                icon={GithubIcon}
+                href="https://github.com/haric95"
+                className="icon"
+              />
+              <IconButton
+                icon={LinkedinIcon}
+                href="https://www.linkedin.com/in/hari-chauhan-a07213122/"
+                className="icon"
+              />
+              <IconButton
+                icon={EmailIcon}
+                href="mailto:hari-c@hotmail.co.uk"
+                className="icon"
+              />
+            </div>
+            <h4 className="accessibility-info">
+              PS: Hit the A key to toggle accessibility mode
+            </h4>
           </div>
         </Content>
       </Block>
-      <Block factor={isMobile ? 1 : -1} offset={1}>
+      <Block factor={isSimpleLayout ? 1 : -1} offset={1}>
         <Content side="right" className="portfolio-block" color={colors[1]}>
           <h1>Honeywell’s Futropolis</h1>
           <h2 style={{ color: "var(--blue-600)" }}>
@@ -134,7 +141,7 @@ export const Pages: React.FC = () => {
           </h2>
         </Content>
       </Block>
-      <Block factor={isMobile ? 1 : -1} offset={3}>
+      <Block factor={isSimpleLayout ? 1 : -1} offset={3}>
         <Content side="right" color={colors[3]} className="portfolio-block">
           <h1>Others</h1>
           <div className="others">
@@ -236,7 +243,7 @@ export const Pages: React.FC = () => {
           </div>
         </Content>
       </Block>
-      <Block factor={isMobile ? 1 : -1} offset={5}>
+      <Block factor={isSimpleLayout ? 1 : -1} offset={5}>
         <Content side="right" color={colors[5]} className="portfolio-block">
           <h2>And some books I’ve enjoyed recently</h2>
           <div className="books">

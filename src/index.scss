@@ -111,6 +111,12 @@ a.inline-link {
   border: 0;
 }
 
+.accessibility-label {
+  position: fixed;
+  left: 4px;
+  bottom: 0;
+}
+
 // Mixins
 $breakpoints: (
   "mobile": 480px,
