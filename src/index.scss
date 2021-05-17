@@ -55,22 +55,26 @@ h4,
 h5 {
   color: $grey-900;
   font-family: "Manrope";
+  letter-spacing: -1px;
   margin: 0 0 8px;
 }
 
 h1 {
   font-size: 8vh;
   font-weight: 700;
+  line-height: 10vh;
 }
 
 h2 {
   font-size: 5vh;
   font-weight: 700;
+  line-height: 6vh;
 }
 
 h3 {
   font-size: 4vh;
   font-weight: 700;
+  line-height: 5vh;
 }
 
 p {
