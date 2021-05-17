@@ -66,11 +66,9 @@
   }
 
   .photo {
-    height: 200px;
-
     img {
       border: 4px solid $grey-900;
-      height: 100%;
+      margin-bottom: 16px;
       width: auto;
     }
   }
@@ -81,7 +79,7 @@
 
     .book {
       display: flex;
-      height: 200px;
+      min-height: 200px;
       flex-direction: row;
       margin-bottom: 32px;
 
@@ -102,7 +100,7 @@
       }
 
       img {
-        height: 100%;
+        height: 200px;
 
         @include bp("tablet") {
           display: none;
