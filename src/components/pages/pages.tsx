@@ -289,8 +289,8 @@ export const Pages: React.FC = () => {
                 </h3>
                 <p>
                   A collection of short-stories set in the decaying desert
-                  resort of Vermillion Sands. The details Ballard chooses leaves
-                  out are what make this collection so special
+                  resort of Vermillion Sands. The details Ballard chooses to
+                  leave out are what make this collection so special
                 </p>
               </div>
             </div>
