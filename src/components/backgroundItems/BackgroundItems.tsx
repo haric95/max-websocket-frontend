@@ -13,7 +13,6 @@ type GLTFSectionsResult = GLTF & {
     books: THREE.Mesh;
     camera: THREE.Mesh;
   };
-  materials: {};
 };
 
 type GLTFGeosResult = GLTF & {
@@ -22,7 +21,6 @@ type GLTFGeosResult = GLTF & {
     geo2: THREE.Mesh;
     geo3: THREE.Mesh;
   };
-  materials: {};
 };
 
 export const useBackgroundItem = (
@@ -79,8 +77,10 @@ export const useBackgroundItem = (
 export const BackgroundItems: React.FC = () => {
   const { nodes: sectionsNodes } = useGLTF(
     "/sections.glb"
-  ) as GLTFSectionsResult;
-  const { nodes: geosNodes } = useGLTF("/geos.glb") as GLTFGeosResult;
+  ) as unknown as GLTFSectionsResult;
+  const { nodes: geosNodes } = useGLTF(
+    "/geos.glb"
+  ) as unknown as GLTFGeosResult;
 
   const { calculateSize: calculateLaptopSize } = useBackgroundItem(0, 3.5, 15);
   const { calculateSize: calculateCameraSize } = useBackgroundItem(3, 4.5, 15);

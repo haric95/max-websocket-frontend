@@ -1,3 +1,4 @@
+import React from "react";
 import { TweakContext } from "App";
 import { OrthographicCamera } from "drei";
 import { useContext, useMemo } from "react";

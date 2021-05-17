@@ -34,7 +34,7 @@ export const Pages: React.FC = () => {
     <>
       <Block factor={1} offset={0}>
         <Content side="left" className="portfolio-block" color={colors[0]}>
-          <h1>Hi - I'm Hari </h1>
+          <h1>Hi - I’m Hari </h1>
           <h2 style={{ color: "var(--blue-600)" }}>
             A London-based <span className="accent">software engineer</span>{" "}
             with a focus on <span className="accent">front-end</span>
@@ -69,7 +69,7 @@ export const Pages: React.FC = () => {
       </Block>
       <Block factor={isMobile ? 1 : -1} offset={1}>
         <Content side="right" className="portfolio-block" color={colors[1]}>
-          <h1>Honeywell's Futropolis</h1>
+          <h1>Honeywell’s Futropolis</h1>
           <h2 style={{ color: "var(--blue-600)" }}>
             A <span className="accent">modern 3D web experience</span> I built
             whilst at{" "}
@@ -185,7 +185,7 @@ export const Pages: React.FC = () => {
                 <img src={GoogleTrustServicesImage} alt="Clevry" />
               </a>
               <p style={{ color: "var(--blue-600)" }}>
-                <span className="accent">Google's PKI site</span>. Built at
+                <span className="accent">Google’s PKI site</span>. Built at
                 Phantom and for which I was the sole developer
               </p>
             </div>
@@ -194,7 +194,7 @@ export const Pages: React.FC = () => {
       </Block>
       <Block factor={1} offset={4}>
         <Content side="left" color={colors[4]} className="portfolio-block">
-          <h2>Here are a few favourite images I've made</h2>
+          <h2>Here are a few favourite images I’ve made</h2>
           <div className="others">
             <div className="other">
               <div className="photo">
@@ -202,7 +202,7 @@ export const Pages: React.FC = () => {
               </div>
               <p style={{ color: "var(--blue-600)" }}>
                 A double exposure from{" "}
-                <span className="accent">Jenny Holzer</span>'s Tate exhibition
+                <span className="accent">Jenny Holzer</span>’s Tate exhibition
               </p>
             </div>
             <div className="other">
@@ -220,7 +220,7 @@ export const Pages: React.FC = () => {
               </div>
               <p style={{ color: "var(--blue-600)" }}>
                 Blender donut made following{" "}
-                <span className="accent">Blender Guru</span>'s{" "}
+                <span className="accent">Blender Guru</span>’s{" "}
                 <span className="accent">
                   <a
                     className="inline-link"
@@ -238,7 +238,7 @@ export const Pages: React.FC = () => {
       </Block>
       <Block factor={isMobile ? 1 : -1} offset={5}>
         <Content side="right" color={colors[5]} className="portfolio-block">
-          <h2>And some books I've enjoyed recently</h2>
+          <h2>And some books I’ve enjoyed recently</h2>
           <div className="books">
             <div className="book">
               <div className="image-container unstyled-button site-link other-site-link">
@@ -314,7 +314,7 @@ export const Pages: React.FC = () => {
       <Block factor={1} offset={6}>
         <Content side="right" color={colors[6]} className="portfolio-block">
           <h2>
-            Finally - here are a couple of meshes I've made working with{" "}
+            Finally - here are a couple of meshes I’ve made working with{" "}
             <span className="accent">
               <a
                 href="https://www.sidefx.com/products/houdini/"

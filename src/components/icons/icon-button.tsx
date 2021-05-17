@@ -16,7 +16,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   const Icon = icon;
   return href ? (
-    <a href={href} className={`icon-button ${className}`} target="_blank">
+    <a
+      href={href}
+      className={`icon-button ${className}`}
+      target="_blank"
+      rel="noreferrer"
+    >
       <Icon />
     </a>
   ) : (
