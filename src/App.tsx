@@ -1,5 +1,5 @@
 import { BackgroundItems } from "components/backgroundItems/BackgroundItems";
-import { Camera } from "components/backgroundItems/camera/camera";
+import { Camera } from "components/camera/camera";
 import {
   DatGUIContext,
   DatGuiWrapper,
